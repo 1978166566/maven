@@ -1,0 +1,43 @@
+#数据源    
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.13.55.216:3306/mysqlqsym?serverTimezone=UTC
+    username: mysqlqsym
+    password: 123123
+    #Solr配置
+  data:
+    solr:
+      host: http://localhost:5656/solr
+
+
+
+  #视图解析器
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    prefix: classpath:/static/
+    suffix: .html
+
+    resources:
+      static-locations: classpath:/static/
+#MyBatis   
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations:
+  - classpath:mapper/*.xml
+#    type-aliases-package: con.cssl.pojo
+
+#
+##  pageSizeZero：设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果（相当于没有执行分页查询，但是返回结果仍然是Page类型）
+##  Reasonable： 3.3.0版本可用 - 分页参数合理化，默认false禁用，启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 ，禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据
+#pagehelper:
+#  reasonable: true
+#  page-size-zero: true
+#
+##  pageSizeZero：设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果（相当于没有执行分页查询，但是返回结果仍然是Page类型）
+##  Reasonable： 3.3.0版本可用 - 分页参数合理化，默认false禁用，启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 ，禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据
+pagehelper:
+  reasonable: true
+  page-size-zero: true
+
